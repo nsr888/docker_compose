@@ -1,12 +1,8 @@
 # docker_compose
 
-<img width="567" alt="Снимок экрана 2021-09-30 в 13 04 14" src="https://user-images.githubusercontent.com/12528718/135435521-6f4ce08e-0fa7-4bd7-a3f1-cfc91ea6e9b6.png">
-
-Before starting the evaluation, run this command in 
-the terminal: 
+Before starting the evaluation, run this command in the terminal: 
 ```
-docker stop $(docker ps -qa); docker rm $(docker 
-ps -qa);
+docker stop $(docker ps -qa); docker rm $(docker ps -qa);
 docker rmi -f $(docker images -qa); docker volume rm $(docker volume ls -q); 
 docker network rm $(docker network ls -q) 2>/dev/null
 ```
@@ -83,7 +79,7 @@ recognized. A self-signed certificate warning may appear.
 - [ ] The evaluated student must be able to explain you how to login intothe database. Try to login into the SQL database as root but with no password. If the login is successful, the evaluation process ends now. - Try to login into the SQL database with the user account and its password. Verify that the database is not empty.
 
 ## Persistence
-- [ ] - This part is pretty straightforward. You have to reboot the virtual machine. Once it has restarted, launch docker-compose again. Then, verify that everything is functional, and that both WordPress and MariaDB are configured. The changes you made previously to the WordPress website should still be here. If any of the above points is not correct, the evaluation process ends now.
+- [ ] This part is pretty straightforward. You have to reboot the virtual machine. Once it has restarted, launch docker-compose again. Then, verify that everything is functional, and that both WordPress and MariaDB are configured. The changes you made previously to the WordPress website should still be here. If any of the above points is not correct, the evaluation process ends now.
 
 ## Bonus
 - [ ] Set up redis cache for your WordPress website in order to properly manage the cache.
@@ -91,3 +87,7 @@ recognized. A self-signed certificate warning may appear.
 - [ ] Create a simple static website in the language of your choice except PHP (Yes, PHP is excluded!). For example, a showcase site or a site for presenting your resume.
 - [ ] Set up Adminer.
 - [ ] Set up a service of your choice that you think is useful. During the defense, you will have to justify your choice.
+
+
+
+<img width="567" alt="Снимок экрана 2021-09-30 в 13 04 14" src="https://user-images.githubusercontent.com/12528718/135435521-6f4ce08e-0fa7-4bd7-a3f1-cfc91ea6e9b6.png">
