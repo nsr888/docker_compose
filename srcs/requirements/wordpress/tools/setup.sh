@@ -1,4 +1,6 @@
-#!/bin/sh
+#!/usr/bin/env bash
+# https://transang.me/best-practice-to-make-a-shell-script/
+set -Eeuo pipefail
 if [[ ! -f "/app/wp-config.php" ]]
 then
 	wp config create \

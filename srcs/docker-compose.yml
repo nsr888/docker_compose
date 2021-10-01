@@ -7,6 +7,7 @@ services:
     image: mariadb
     volumes:
       - mariadb_data:/var/lib/mysql
+    command: ['/usr/bin/mysqld_safe']
     restart: always
     healthcheck:
       test: [ 'CMD', 'mysqladmin', 'ping', '-u', 'root', '-p${MYSQL_ROOT_PASSWORD?REQUIRED}' ]
