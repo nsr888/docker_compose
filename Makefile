@@ -36,10 +36,10 @@ cleanwp:
 
 fclean: confirm
 	docker stop $$(docker ps -qa)
-	docker rm $$(docker ps -qa)
+	docker rm -f $$(docker ps -qa)
 	docker rmi -f $$(docker images -qa)
-	docker volume rm $$(docker volume ls -q)
-	docker network rm $$(docker network ls -q) 2>/dev/null
+	docker volume rm -f $$(docker volume ls -q)
+	docker network rm -f $$(docker network ls -q) 2>/dev/null
 
 confirm:
 	@echo -n "Are you sure? [y/N] " && read ans && [ $${ans:-N} = y ]
