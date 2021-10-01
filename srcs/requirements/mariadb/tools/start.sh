@@ -12,7 +12,7 @@ rc-service mariadb start
 apk add expect
 
 SECURE_MYSQL=$(expect -c "
-set timeout 3 
+set timeout 6 
 spawn mysql_secure_installation
 expect \"Enter current password for root (enter for none): \"
 send \"n\r\"
