@@ -1,6 +1,4 @@
-#!/usr/bin/env bash
-# https://transang.me/best-practice-to-make-a-shell-script/
-set -Eeuo pipefail
+#!/bin/sh
 if [[ ! -f "/run/mysqld" ]]
 then
 	sed -i "s|.*bind-address\s*=.*|bind-address=0.0.0.0|g" /etc/my.cnf.d/mariadb-server.cnf
@@ -42,7 +40,7 @@ then
 	echo "${SECURE_MYSQL}"
 	apk del expect
 	mysql -u root -e "CREATE USER '$MYSQL_USER_NAME'@'%' IDENTIFIED BY '$MYSQL_USER_PASSWORD';
-	GRANT ALL PRIVILEGES ON wordpress.* TO '$MYSQL_USER_NAME'@'localhost' IDENTIFIED BY '$MYSQL_USER_PASSWORD';
+	GRANT ALL PRIVILEGES ON wordpress.* TO '$MYSQL_USER_NAME'@'%' IDENTIFIED BY '$MYSQL_USER_PASSWORD';
 	FLUSH PRIVILEGES;"
 	rc-service mariadb stop
 fi
