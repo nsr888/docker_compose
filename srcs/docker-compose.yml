@@ -16,17 +16,6 @@ services:
     networks:
       - my_network
 
-  adminer:
-    container_name: adminer
-    build: requirements/bonus/adminer
-    image: adminer
-    restart: always
-    depends_on:
-      mariadb:
-        condition: service_healthy
-    networks:
-      - my_network
-
   nginx:
     container_name: nginx
     build: ./requirements/nginx
@@ -59,9 +48,81 @@ services:
     networks:
       - my_network
 
+  adminer:
+    container_name: adminer
+    build: requirements/bonus/adminer
+    image: adminer
+    restart: always
+    depends_on:
+      mariadb:
+        condition: service_healthy
+    networks:
+      - my_network
+
+  redis:
+    container_name: redis
+    build: requirements/bonus/redis
+    image: redis
+    restart: always
+    ports:
+      - 6379:6379
+    networks:
+      - my_network
+
+  ftps:
+    container_name: ftps
+    hostname: ftps
+    build: requirements/bonus/ftps
+    image: ftps
+    restart: always
+    depends_on:
+      - wordpress
+    networks:
+      - my_network
+    volumes:
+      - wordpress_data:/home/ft
+    ports:
+      - '20:20'
+      - '21:21'
+      - 10090:10090
+
+  resume:
+    container_name: resume
+    build: requirements/bonus/resume
+    image: resume
+    restart: always
+    ports:
+      - 1313:1313
+    networks:
+      - my_network
+
+  datadog:
+    container_name: datadog
+    build: requirements/bonus/datadog
+    ports:
+      - 8126
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /proc/:/host/proc/:ro
+      - /sys/fs/cgroup:/host/sys/fs/cgroup:ro
+    env_file:
+      - .env
+    environment:
+      - DOCKER_CONTENT_TRUST=1
+
 volumes:
-  mariadb_data: {}
-  wordpress_data: {}
+  mariadb_data: 
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: ~/data/mariadb
+  wordpress_data:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: ~/data/wordpress
 
 networks:
   my_network:

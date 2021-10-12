@@ -20,5 +20,11 @@ then
 		--role=author \
 		--user_pass=$WORDPRESS_USER_PASSWORD \
 		--allow-root
+  wp plugin install --activate redis-cache --allow-root
+  wp plugin activate redis-cache --allow-root
+  wp plugin update --all --allow-root
+  wp redis enable --allow-root
+  wp config set WP_REDIS_HOST redis --add --allow-root
+  wp config set WP_REDIS_PORT 6379 --add --allow-root
 fi
 exec "$@"

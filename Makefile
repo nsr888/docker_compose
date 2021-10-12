@@ -1,12 +1,16 @@
 DOCKER_COMPOSE_FILE=srcs/docker-compose.yml
 
-build:
+create_volume_dirs:
+	mkdir -p ~/data/mariadb
+	mkdir -p ~/data/wordpress
+
+build: create_volume_dirs
 	docker-compose -f $(DOCKER_COMPOSE_FILE) build $(c)
 
-up:
+up: create_volume_dirs
 	docker-compose -f $(DOCKER_COMPOSE_FILE) up $(c)
 
-start:
+start: create_volume_dirs
 	docker-compose -f $(DOCKER_COMPOSE_FILE) up -d $(c) 
 
 stop:
@@ -28,10 +32,10 @@ clean: confirm
 cleanwp: confirm
 	docker-compose -f $(DOCKER_COMPOSE_FILE) stop nginx
 	docker-compose -f $(DOCKER_COMPOSE_FILE) stop wordpress
-	docker container rm nginx
-	docker container rm wordpress
-	docker image rm nginx
-	docker image rm _wordpress
+	docker container rm -f nginx
+	docker container rm -f wordpress
+	docker image rm -f nginx
+	docker image rm -f wordpress
 	docker volume rm srcs_wordpress_data
 
 fclean: confirm

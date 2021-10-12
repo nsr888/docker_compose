@@ -52,17 +52,6 @@ RUN \
 	tar xf latest.tar.gz --strip-components=1 && \
 	rm latest.tar.gz
 
-# wordpress
-# WORKDIR /app
-# RUN \
-# 	wget --no-check-certificate https://wordpress.org/latest.tar.gz && \
-# 	tar xf latest.tar.gz --strip-components=1 && rm latest.tar.gz && \
-# 	mv wp-config-sample.php wp-config.php && \
-# 	sed -i "s/database_name_here/wordpress/" wp-config.php && \
-# 	sed -i "s/username_here/ft/" wp-config.php && \
-# 	sed -i "s/password_here/ft/" wp-config.php && \
-# 	echo "define('FS_METHOD', 'direct');" >> wp-config.php
-
 EXPOSE 9000
 
 COPY tools/setup.sh setup.sh
