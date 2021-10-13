@@ -14,7 +14,9 @@ COPY --from=0 /hugo/hugo /usr/bin
 WORKDIR /app
 COPY ./site /app
 
-RUN curl -sSL https://github.com/austingebauer/devise/archive/refs/heads/master.zip -o /app/themes/master.zip && \
+RUN \
+    mkdir -p /app/themes && \
+    curl -sSL https://github.com/austingebauer/devise/archive/refs/heads/master.zip -o /app/themes/master.zip && \
     unzip /app/themes/master.zip -d /app/themes/ && \
     mv /app/themes/devise-master /app/themes/devise && \
     rm /app/themes/master.zip
