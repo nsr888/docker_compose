@@ -3,6 +3,7 @@ DOCKER_COMPOSE_FILE=srcs/docker-compose.yml
 create_volume_dirs:
 	mkdir -p ~/data/mariadb
 	mkdir -p ~/data/wordpress
+	mkdir -p ~/data/resume
 
 build: create_volume_dirs
 	docker-compose -f $(DOCKER_COMPOSE_FILE) build $(c)
