@@ -58,6 +58,8 @@ services:
         condition: service_healthy
     networks:
       - my_network
+    ports:
+      - 8080:8080
 
   redis:
     container_name: redis
@@ -84,7 +86,7 @@ services:
     ports:
       - '20:20'
       - '21:21'
-      - 10090:10090
+      - '10090:10090'
 
   resume:
     container_name: resume
