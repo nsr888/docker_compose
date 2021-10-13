@@ -93,6 +93,8 @@ services:
     build: requirements/bonus/resume
     image: resume
     restart: always
+    volumes:
+      - resume_data:/app
     ports:
       - 1313:1313
     networks:
@@ -125,6 +127,12 @@ volumes:
       o: bind
       type: none
       device: ~/data/wordpress
+  resume_data:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: ~/data/resume
 
 networks:
   my_network:
