@@ -14,8 +14,8 @@ I’m fluent in Go, Python, C, SQL, HTML, Docker.
 
 Have a look at some of my working [projects].
 
-Contact me at [@nasyrovartur].
+Contact me at [@telegram].
 
 [projects]: /projects
 [resume]: /resume
-[@nasyrovartur]: https://telegram.me/nasyrovarthur
+[@telegram]: https://telegram.me/xxx

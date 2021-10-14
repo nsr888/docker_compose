@@ -42,13 +42,13 @@ copyright = "&copy; Copyright Year, Arthur Nasyrov"
     fontColor = "#212529"
   [[params.social]]
     fa_icon = "fab fa-github fa-1x"          # Font Awesome icon class
-    href = "http://github.com/nsr888"      # Link to associate with icon (http://, https://, mailto:)
+    href = "http://github.com/xxx"      # Link to associate with icon (http://, https://, mailto:)
   [[params.social]]
     fa_icon = "fab fa-linkedin-in fa-1x"
-    href = "https://www.linkedin.com/in/artur-nasyrov-a8872a203/"
+    href = "https://www.linkedin.com/in/xxx/"
   [[params.social]]
     fa_icon = "fab fa-telegram fa-1x"
-    href = "https://telegram.me/nasyrovarthur"
+    href = "https://telegram.me/xxx"
 #  [[params.social]]
 #    fa_icon = "fas fa-at fa-1x"
 #    href = ""
